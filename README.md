@@ -14,3 +14,6 @@ one sketch every quarantine day
 
 - example:
   - available at /day-0
+  
+![Screenshot](https://github.com/roquef/quarantine-days/blob/master/day-0/screenshot.PNG?raw=true "Screenshot")
+![GIF](https://github.com/roquef/quarantine-days/blob/master/day-0/Day%2000%202020-02-19%2013_01_17.gif?raw=true "GIF")
