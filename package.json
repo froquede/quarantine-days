@@ -1,0 +1,24 @@
+{
+  "name": "quarantine-days",
+  "version": "1.0.0",
+  "description": "one sketch every quarantine day",
+  "main": "index.js",
+  "dependencies": {
+    "ccapture.js": "^1.1.0",
+    "http-server": "^0.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roquef/quarantine-days.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roquef/quarantine-days/issues"
+  },
+  "homepage": "https://github.com/roquef/quarantine-days#readme"
+}
