@@ -3,8 +3,8 @@
 
 - rules:
   - every sketch outputs image or video / gif
-  - no more than 1h for one sketch
-  - 1 folder per day
+  - no more than 1 hour per sketch
+  - organize days in folders
   - shared dependecies
 
 - getting started:
