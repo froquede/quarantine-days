@@ -5,7 +5,7 @@
   - every sketch outputs image or video / gif
   - no more than 1 hour per sketch
   - organize days in folders
-  - shared dependecies
+  - shared dependencies
 
 - getting started:
   - fork this repository
