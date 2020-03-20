@@ -20,4 +20,5 @@
 </p>
  
 - my sketches (branch my-sketches)
+  - [day 3](https://roquef.github.io/qdays/day-3/)
   - [day 4](https://roquef.github.io/qdays/day-4/)
