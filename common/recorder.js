@@ -20,7 +20,7 @@ class Recorder {
     set(key, value) {
         // not safe
         this.options[key] = value;
-        if (key === 'fps') {
+        if (key === 'fps' || key === 'motion_blur') {
             this.init();
         }
     }
