@@ -11,7 +11,7 @@ class Canvas {
         this.animate = this.animate.bind(this);
         this.ctx.lineWidth = 0;
         this.count = 0;
-        this.options = { fps: 6 };
+        this.options = { fps: 6, motion_blur: 1 };
         this.animate();
 
         return this;
@@ -20,7 +20,7 @@ class Canvas {
     set(key, value) {
         // not safe
         this.options[key] = value;
-        if(key === 'fps') {
+        if (key === 'fps') {
             window.clearInterval(this.interval);
             this.animate();
         }
@@ -37,7 +37,13 @@ class Canvas {
     }
 
     next() {
+        if (this.options.clearAfterDraw && this.count >= this.options.motion_blur) {
+            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            this.count = 0;
+        }
         for (let q of this.queue) q.draw(this.ctx, this.canvas);
+        this.count++;
     }
 
     animate() {
