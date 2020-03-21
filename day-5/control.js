@@ -5,7 +5,7 @@ class Control {
         this.draw = this.draw.bind(this);
     }
 
-    get default_options() { return { threshold: 50 } }
+    get default_options() { return { threshold: window.innerWidth / 16 } }
 
     draw(ctx, canvas) {
         setTimeout(() => {
@@ -13,12 +13,20 @@ class Control {
                 for (let p2 of this.persons) {
                     if (p.id !== p2.id) {
                         if (this.near(p, p2)) {
+                            let last_x = p2.direction.x;
+                            let last_y = p2.direction.y;
                             p2.direction = { x: 4 - ((1 * Math.random()) * 8), y: 4 - ((1 * Math.random()) * 8) }
+                            if (last_x < 0 && p2.direction.x < 0 || last_x > 0 && p2.direction.x > 0) {
+                                p2.direction.x *= -1
+                            }
+                            if (last_y < 0 && p2.direction.y < 0 || last_y > 0 && p2.direction.y > 0) {
+                                p2.direction.y *= -1
+                            }
                         }
                     }
                 }
             }
-    
+
             // this.options.threshold += Math.sin(this.time);;
         }, 0)
     }

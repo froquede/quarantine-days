@@ -12,7 +12,6 @@ class Canvas {
         this.ctx.lineWidth = 0;
         this.count = 0;
         this.options = { fps: 6, motion_blur: 1 };
-        this.animate();
 
         return this;
     }
@@ -20,7 +19,7 @@ class Canvas {
     set(key, value) {
         // not safe
         this.options[key] = value;
-        if (key === 'fps') {
+        if (key === 'fps' && this.looping) {
             window.clearInterval(this.interval);
             this.animate();
         }
@@ -29,6 +28,10 @@ class Canvas {
     draw(object, x, y) {
         object.position = { x, y };
         this.queue.push(object);
+
+        if (!this.looping) {
+            this.animate();
+        }
     }
 
     drawOnce(object, x, y) {
@@ -37,16 +40,17 @@ class Canvas {
     }
 
     next() {
-        if (this.options.clearAfterDraw && this.count >= this.options.motion_blur) {
-            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        if (this.options.clearAfterDraw) {
+            this.ctx.fillStyle = `rgba(255, 255, 255, ${1 / this.options.motion_blur})`;
             this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
             this.count = 0;
         }
         for (let q of this.queue) q.draw(this.ctx, this.canvas);
-        this.count++;
     }
 
     animate() {
+        console.trace();
+        this.looping = true;
         // let last = +(new Date())
         this.interval = setInterval(() => {
             // let actual = +(new Date());
