@@ -23,3 +23,4 @@
   - [day 3](https://roquef.github.io/qdays/day-3/)
   - [day 4](https://roquef.github.io/qdays/day-4/)
   - [day 5](https://roquef.github.io/qdays/day-5/)
+  - [day 7](https://roquef.github.io/qdays/day-7/)
