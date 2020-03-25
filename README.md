@@ -1,5 +1,5 @@
 # quarantine-days
-> one sketch every quarantine day
+> one sketch (almost) every quarantine day
 
 - rules:
   - every sketch outputs image or video / gif
