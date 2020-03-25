@@ -31,15 +31,19 @@ camera.addEventListener('loadeddata', ({ target }) => {
     screen.h += dy
 
     Object.assign(camera, { width: vw, height: vh })
+});
 
-    document.querySelector('.js-start').removeAttribute('disabled');
-    document.querySelector('svg').remove();
-    document.querySelector('.js-start').onclick = () => {
-        document.querySelector('body').prepend(camera);
-        camera.play().then(() => {
-            window.requestAnimationFrame(repeat)
-        }).catch(console.log)
-    }
+camera.addEventListener('canplay', () => {
+    setTimeout(() => {
+        document.querySelector('.js-start').removeAttribute('disabled');
+        document.querySelector('svg').remove();
+        document.querySelector('.js-start').onclick = () => {
+            document.querySelector('body').prepend(camera);
+            camera.play().then(() => {
+                window.requestAnimationFrame(repeat)
+            }).catch(console.log)
+        }
+    }, 0);
 });
 
 let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
