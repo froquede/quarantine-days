@@ -38,6 +38,8 @@ camera.addEventListener('canplay', () => {
         document.querySelector('.js-start').removeAttribute('disabled');
         document.querySelector('svg').remove();
         document.querySelector('.js-start').onclick = () => {
+            startContext();
+
             document.querySelector('body').prepend(camera);
             camera.play().then(() => {
                 window.requestAnimationFrame(repeat)
@@ -46,17 +48,23 @@ camera.addEventListener('canplay', () => {
     }, 0);
 });
 
-let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-let analyser = audioCtx.createAnalyser();
-let s = audioCtx.createMediaElementSource(camera);
-s.connect(analyser);
-s.connect(audioCtx.destination);
-analyser.fftSize = 2048;
-var bufferLength = analyser.frequencyBinCount;
-var dataArray = new Uint8Array(bufferLength);
-console.log(bufferLength);
+let audioCtx
+let analyser
+let s
+var bufferLength
+var dataArray
 
-let time = 0;
+function startContext() {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    s = audioCtx.createMediaElementSource(camera);
+    s.connect(analyser);
+    s.connect(audioCtx.destination);
+    analyser.fftSize = 2048;
+    bufferLength = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(bufferLength);
+}
+
 const repeat = () => {
     analyser.getByteTimeDomainData(dataArray);
 
