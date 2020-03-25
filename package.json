@@ -7,7 +7,9 @@
     "ccapture.js": "^1.1.0",
     "http-server": "^0.12.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@thewhodidthis/wobble": "github:thewhodidthis/wobble"
+  },
   "scripts": {
     "start": "http-server -c-1"
   },

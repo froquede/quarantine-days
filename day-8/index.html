@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 8</title>
+    <link rel="stylesheet" href="../common/style.css">
+    <style>
+        .fixed-button {
+            left: calc(50vw - 33px);
+            top: calc(50vh + 220px);
+            position: fixed;
+            box-shadow: none;
+        }
+        
+        svg {
+            left: calc(50vw - 42px);
+            top: calc(50vh - 42px);
+            position: fixed;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 10, 10, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        style="margin:auto;display:block;" width="84px" height="84px" viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid">
+        <circle cx="50" cy="50" r="41" stroke-width="10" stroke="#fafafa"
+            stroke-dasharray="64.40264939859075 64.40264939859075" fill="none" stroke-linecap="round"
+            transform="rotate(230.011 50 50)">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1.8518518518518516s"
+                keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+        </circle>
+    </svg>
+    <canvas id="stage"></canvas>
+    <button class="fixed-button js-start" disabled=true>Play</button>
+</body>
+<script src="../node_modules/ccapture.js/build/CCapture.all.min.js"></script>
+<script src="index.js" type="module"></script>
+
+</html>
