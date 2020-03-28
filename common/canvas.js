@@ -11,7 +11,12 @@ class Canvas {
         this.animate = this.animate.bind(this);
         this.ctx.lineWidth = 0;
         this.count = 0;
-        this.options = { fps: 6, motion_blur: 1 };
+        this.options = { 
+            fps: 6, motion_blur: 1,
+            background: {
+                r: 250, g: 250, b: 250
+            }
+        };
 
         return this;
     }
@@ -36,16 +41,17 @@ class Canvas {
 
     drawOnce(object, x, y) {
         object.position = { x, y };
-        object.draw(this.ctx, this.canvas);
+        object.draw(this.ctx, this.canvas, this.options);
     }
 
     next() {
         if (this.options.clearAfterDraw) {
-            this.ctx.fillStyle = `rgba(255, 255, 255, ${1 / this.options.motion_blur})`;
+            console.log(this.options.background)
+            this.ctx.fillStyle = `rgba(${this.options.background.r}, ${this.options.background.g}, ${this.options.background.b}, ${1 / this.options.motion_blur})`;
             this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
             this.count = 0;
         }
-        for (let q of this.queue) q.draw(this.ctx, this.canvas);
+        for (let q of this.queue) q.draw(this.ctx, this.canvas, this.options);
     }
 
     animate() {
