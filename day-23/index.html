@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 23</title>
+    <link rel="stylesheet" href="../common/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    <style>
+        .slidecontainer {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            color: #fafafa;
+            width: 80px;
+        }
+
+        p {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            transition: .1;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            margin-bottom: 20px;
+            transition: .2s ease all;
+        }
+
+        .slider:hover {
+            opacity: 1;
+            transition: .2s ease all;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #fafafa;
+            cursor: pointer;
+
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #fafafa;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="stage"></canvas>
+    <!-- <div class="slidecontainer">
+        <input type="range" min="1" max="300" value="50" class="slider" id="slider_x">
+        <input type="range" min="1" max="300" value="50" class="slider" id="slider_y">
+    </div> -->
+</body>
+<script src="../node_modules/ccapture.js/build/CCapture.all.min.js"></script>
+<script src="index.js" type="module"></script>
+
+</html>
